@@ -1,0 +1,19 @@
+.input {
+    text-align: center;
+    padding-top: 2%;
+}
+.mat-raised-button {
+    background-color: #F99A9C;
+    color: white;
+}
+.table {
+    width: 75%;
+    /* align-self: center; */
+    padding-left: 25%;
+    padding-top: 5%;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+/* #3f51B5 */
