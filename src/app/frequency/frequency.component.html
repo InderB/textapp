@@ -1,39 +1,71 @@
-<div class="input">
-  <form [formGroup]="frequencyCountForm" (submit)="onSubmit(frequencyCountForm.value)">
-    <mat-form-field style="width: 20%">
-      <input matInput type="number" placeholder="Enter number of words" formControlName="wordCount" min=1>
-      <mat-error
-        *ngIf="frequencyCountForm.get('wordCount').touched && frequencyCountForm.get('wordCount').hasError('required')">
-        No of words <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <br>
-    <button mat-raised-button [disabled]="frequencyCountForm.invalid">Get Frequency</button>
-  </form>
-</div>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple" fullscreen="true">
+	<p style="font-size: 20px; color: white">Fetching results...</p>
+</ngx-spinner>
 
-<div *ngIf="showTopWords" class="table">
-  <mat-form-field style="width: 50%;">
-    <input matInput (keyup)="filterWords($event.target.value)" placeholder="Search word">
-  </mat-form-field>
+<div class="row" style="margin: 0px">
+	<div class="col-4">
+		<div class="card">
+			<div class="card-header">
+				Frequency Input
+			</div>
+			<div class="card-body">
+				<form [formGroup]="frequencyCountForm" (submit)="onSubmit(frequencyCountForm.value)">
+					<div class="col-12">
+						<mat-form-field>
+							<input matInput type="number" placeholder="Enter number of words"
+								formControlName="wordCount" min=1>
+							<mat-error
+								*ngIf="frequencyCountForm.get('wordCount').touched && frequencyCountForm.get('wordCount').hasError('required')">
+								No of words <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<br>
+					<div class="col-12" align="right">
+						<button mat-raised-button [disabled]="frequencyCountForm.invalid">Get Frequency</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-  <mat-table [dataSource]="topWords">
-    <ng-container matColumnDef="index">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element; let i = index"> {{ i+1 }}. </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="word">
-      <mat-header-cell *matHeaderCellDef> Word </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.word }} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="frequency">
-      <mat-header-cell *matHeaderCellDef> Frequency </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.frequency }} </mat-cell>
-    </ng-container>
+	<div class="col-8">
+		<div class="card response-card">
+			<div class="card-header">
+				Response Table
+			</div>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+			<div class="card-body">
+				<div *ngIf="!showTopWords" align="center">
+					No Data to show, Try hitting the <i>Get Frequency</i> button :)
+				</div>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+				<div *ngIf="showTopWords">
+					<mat-form-field style="width: 50%;">
+						<input matInput (keyup)="filterWords($event.target.value)" placeholder="Search word">
+					</mat-form-field>
+
+					<mat-table [dataSource]="topWords" class="fixed-header">
+						<ng-container matColumnDef="index">
+							<mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+							<mat-cell *matCellDef="let element; let i = index"> {{ i+1 }}. </mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="word">
+							<mat-header-cell *matHeaderCellDef> Word </mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{ element.word }} </mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="frequency">
+							<mat-header-cell *matHeaderCellDef> Frequency </mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{ element.frequency }} </mat-cell>
+						</ng-container>
+
+						<mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+						<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+					</mat-table>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
 </div>

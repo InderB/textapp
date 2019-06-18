@@ -1,3 +1,28 @@
 /* h1 {
     color: #9E9E9E;
 } */
+nav {
+    /* padding: 0px; */
+    background-color: #F99A9C;
+}
+.navbar-brand {
+    color: white;
+    font-family: 'Maven Pro', sans-serif;
+}
+main {
+    padding-bottom: 70px;
+}
+footer {
+    background-color: #F99A9C;
+    height: 5%;
+    font-size: 15px;
+}
+.material-icons {
+    font-size: 15px;
+}
+.container {
+    color: white;
+}
+.navbar>.container{
+    display: inline;
+}

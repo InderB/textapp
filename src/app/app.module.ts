@@ -8,6 +8,7 @@ import { MatButtonModule, MatInputModule, MatTableModule, MatPaginatorModule } f
 import { FrequencyComponent } from './frequency/frequency.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
