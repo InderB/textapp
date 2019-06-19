@@ -1,4 +1,4 @@
 module.exports = {
-    PORT: 4200,
+    PORT: 8080,
     APPNAME:'textApp'
 };
