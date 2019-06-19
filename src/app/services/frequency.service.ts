@@ -11,7 +11,7 @@ export class FrequencyService {
     constructor(private http: HttpClient, private toastService: ToastService) { }
 
     getTopWordsFrequency(wordCount) {
-        return this.http.get(`http://localhost:4005/api/getFrequency/${wordCount}`)
+        return this.http.get(`/api/getFrequency/${wordCount}`)
             .pipe(
                 tap(console.log),
                 map((response: { success: Boolean, data?: any, errors?: any }) => {
