@@ -38,7 +38,6 @@ export class FrequencyComponent implements OnInit {
 
         console.log('Words to count:-', formFieldValues.wordCount);
         this.frequencyService.getTopWordsFrequency(formFieldValues.wordCount).subscribe(response => {
-            console.log('Response', response);
             this.spinner.hide();
             if (response) {
                 this.showTopWords = true;

@@ -3,7 +3,7 @@
 </ngx-spinner>
 
 <div class="row" style="margin: 0px">
-	<div class="col-4">
+	<div class="col-sm-12 col-md-4 col-xl-4 col-xl-4 mb-4">
 		<div class="card">
 			<div class="card-header">
 				Frequency Input
@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	<div class="col-8">
+	<div class="col-sm-12 col-md-8 col-xl-8 col-xl-8">
 		<div class="card response-card">
 			<div class="card-header">
 				Response Table
@@ -41,7 +41,7 @@
 				</div>
 
 				<div *ngIf="showTopWords">
-					<mat-form-field style="width: 50%;">
+					<mat-form-field class="col-xs-12 col-lg-12 col-xl-12">
 						<input matInput (keyup)="filterWords($event.target.value)" placeholder="Search word">
 					</mat-form-field>
 
@@ -63,7 +63,6 @@
 						<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 					</mat-table>
 				</div>
-
 			</div>
 
 		</div>
