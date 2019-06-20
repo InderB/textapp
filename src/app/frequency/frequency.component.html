@@ -2,7 +2,7 @@
 	<p style="font-size: 20px; color: white">Fetching results...</p>
 </ngx-spinner>
 
-<div class="row" style="margin: 0px">
+<div class="row px-3">
 	<div class="col-sm-12 col-md-4 col-xl-4 col-xl-4 mb-4">
 		<div class="card">
 			<div class="card-header">
@@ -29,14 +29,14 @@
 		</div>
 	</div>
 
-	<div class="col-sm-12 col-md-8 col-xl-8 col-xl-8">
+	<div class="col-sm-12 col-md-8 col-xl-8 col-xl-8 mb-4">
 		<div class="card response-card">
 			<div class="card-header">
 				Response Table
 			</div>
 
 			<div class="card-body">
-				<div *ngIf="!showTopWords" align="center">
+				<div *ngIf="!showTopWords" align="center" class="py-5">
 					No Data to show, Try hitting the <i>Get Frequency</i> button :)
 				</div>
 
