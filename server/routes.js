@@ -1,7 +1,7 @@
 const app = module.exports = require('express')();
 const path = require('path');
 const express = require('express');
-const config = require('./../config');
+const config = require('../config');
 const frequencyCount = require('./actions/frequencyCounter').frequencyCount;
 
 // Serve only the static files form the dist directory
