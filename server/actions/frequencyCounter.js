@@ -5,7 +5,6 @@ function countTopWords (wordCountMap, noOfWords) {
         /** Get top n words */
         return Promise.resolve({ data: [...wordCountMap].slice(0, noOfWords) });
     } catch (error) {
-        console.log(error);
         return Promise.reject(error);
     }
 }
@@ -30,5 +29,7 @@ function frequencyCount (noOfWords) {
 }
 
 module.exports = {
+    countTopWords,
+    convertIntoObject,
     frequencyCount
 };
