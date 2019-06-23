@@ -42,7 +42,7 @@
 
 				<div *ngIf="showTopWords">
 					<mat-form-field class="col-xs-12 col-lg-6 col-xl-6">
-						<input matInput (keyup)="filterWords($event.target.value)" placeholder="Search word">
+						<input matInput (keyup)="topWords.filter=filterWords($event.target.value)" placeholder="Search word">
 					</mat-form-field>
 
 					<mat-table [dataSource]="topWords" class="fixed-header">

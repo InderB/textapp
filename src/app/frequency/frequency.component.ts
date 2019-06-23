@@ -30,18 +30,18 @@ export class FrequencyComponent implements OnInit {
         this.showTopWords = false;
     }
 
-    onSubmit(formFieldValues) {
-        this.toastService.showToast(`Getting most frequent ${formFieldValues.wordCount} words...`, 'info');
+    onSubmit({ wordCount }) {
+        this.toastService.showToast(`Getting most frequent ${wordCount} words...`, 'info');
         this.showTopWords = false;
         this.topWords = [];
         this.spinner.show();
 
-        console.log('Words to count:-', formFieldValues.wordCount);
-        this.frequencyService.getTopWordsFrequency(formFieldValues.wordCount).subscribe(response => {
+        console.log('Words to count:-', wordCount);
+        this.frequencyService.getTopWordsFrequency(wordCount).subscribe(response => {
             this.spinner.hide();
             if (response) {
                 this.showTopWords = true;
-                this.toastService.showToast(`Top ${formFieldValues.wordCount} most frequent words generated...`, 'success');
+                this.toastService.showToast(`Top ${wordCount} most frequent words generated...`, 'success');
     
                 this.topWords = new MatTableDataSource(response.data);
                 this.topWords.paginator = this.paginator;
@@ -50,6 +50,6 @@ export class FrequencyComponent implements OnInit {
     }
 
     filterWords(value: string) {
-        this.topWords.filter = value.trim().toLowerCase();
+        return value.trim().toLowerCase();
     }
 }
