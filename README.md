@@ -71,7 +71,7 @@ Command to run test
 ```bash
 jasmine
 ```
-![Test result][server-unit-testing.png]
+![Test result][https://github.com/InderB/textapp/blob/master/server-unit-testing.png]
 
 
 2. UI unit test: Contains 7 specs testing component and service
@@ -80,7 +80,7 @@ Command to run test
 ```bash
 ng test
 ```
-![Test result][UI-Unit-Testing.png]
+![Test result][https://github.com/InderB/textapp/blob/master/UI-Unit-Testing.png]
 
 ## Built With
 * [Angular 6](https://angular.io/) - JavaScript framework for front-end app using TypeScript and HTML
