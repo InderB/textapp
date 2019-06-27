@@ -36,8 +36,11 @@ Note: The run command builds the project. The build artifacts will be stored in 
 TextApp is built to read a hosted file and returns top n most frequently occurring words in that file. Here, n is taken as user input. (You may change the file url in config.js file)
 
 Their are 2 branches in this project. One is the `master` branch and second is `UserInput` branch.
-* Master Branch - Because the file to read is constant and is not changing according to user input, the required file is initially loaded in memory on server start and then is served to api requests
+* Master Branch - Because the file to read is constant and is not changing according to user input, the required file is initially loaded in memory on server start and then is served to api requests.
+Request completion to fetch 2 words ~ **3ms**
+
 * UserInput Branch - File is fetched on each api request and then it calculates top n words
+Request completion to fetch 2 words ~ **900ms**
 
 **Back-end**
 1. File Reading: npm `https` module is used to fetch file from https server
