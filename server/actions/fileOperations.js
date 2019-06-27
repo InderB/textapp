@@ -27,10 +27,7 @@ function readFile(filename) {
 
                     /** Sort map by count */
                     wordCountMap = [...wordCountMap].sort((a, b) => { return b[1] - a[1]; });
-
-                    /** Export word and wordCount map */
-                    module.exports.wordCountMap = wordCountMap;
-                    resolve();
+                    resolve(wordCountMap);
                 });
             });
         } catch (error) {

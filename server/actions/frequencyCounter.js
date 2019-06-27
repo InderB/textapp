@@ -17,10 +17,9 @@ function convertIntoObject ({ data }) {
     return Promise.resolve({ data: result });
 }
 
-function frequencyCount (noOfWords) {
+function frequencyCount (wordCountMap, noOfWords) {
     console.log(`Fetching top ${noOfWords} words...`);
     return new Promise((resolve, reject) => {
-        const wordCountMap = require('./fileOperations').wordCountMap;
         countTopWords(wordCountMap, noOfWords)
             .then(convertIntoObject)
             .then(resolve)
